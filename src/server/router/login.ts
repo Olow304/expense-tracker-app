@@ -16,7 +16,7 @@ export const loginRouter = createRouter().mutation("login", {
     // get password from user in the database
     const findUser = await ctx.prisma.user.findUnique({
       where: {
-        email: input.email,
+        email: input.email.toLowerCase(),
       },
     });
 
@@ -35,7 +35,7 @@ export const loginRouter = createRouter().mutation("login", {
       .setIssuedAt()
       .setIssuer(input.email)
       .setSubject(findUser.name)
-      .setExpirationTime("12h")
+      .setExpirationTime("24h")
       .sign(privateKey);
 
     // check if isPaswordResetRequest is true, if true, set it to false

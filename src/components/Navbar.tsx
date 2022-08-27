@@ -3,7 +3,7 @@ import {BsBellFill, BsSearch} from 'react-icons/bs';
 
 function Navbar() {
     return (
-        <div className='p-2 pl-12 flex h-[50px] items-center'>
+        <div className='p-2 pl-12 flex h-[50px] items-center mobile:hidden'>
             <h1 className='w-[16.4%] text-2xl font-semibold text-gray-600'>Expense</h1>
             <div className='flex-1 flex gap-4 items-center'>
                 <div className='flex gap-2 items-center w-[60%]'>

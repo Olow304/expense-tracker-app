@@ -58,16 +58,16 @@ function Edit() {
     }
 
     return (
-        <div className="flex flex-col bg-gray-100 h-screen">
+        <div className="flex flex-col">
             <div>
                 <Navbar />
             </div>
-            <div className="flex">
-                <div className="flex w-[18%]">
+            <div className="flex mobile:flex mobile:flex-col">
+                <div className="flex w-[18%] mobile:w-full">
                     <Sidebar active=''/>
                 </div>
                 <div className="flex flex-col flex-1">
-                    <div className='flex flex-col gap-10 p-4 h-[95vh]'>
+                    <div className='flex flex-col gap-10 p-4 h-[95vh] mobile:h-full'>
                         <h1>Edit profile</h1>
                         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 w-full">
                             {error && <div className="text-red-500">{error.message}</div>}
@@ -94,7 +94,7 @@ function Edit() {
                     </div>
                 </div>
 
-                <div className="w-[25%]">
+                <div className="w-[25%] mobile:w-full">
                     <RightSideBar />
                 </div>
 

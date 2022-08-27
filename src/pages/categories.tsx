@@ -22,7 +22,6 @@ function Categories() {
     // get all categories from server
     const { data } = trpc.useQuery(['user.get-categories'], {
         onSuccess: (data) => {
-            console.log("success", data);
             setCategories(data);
         }
     });
@@ -30,7 +29,6 @@ function Categories() {
     // add category to server
     const { mutate, error } = trpc.useMutation(["user.add-category"], {
         onSuccess: (data) => {
-            console.log("success", data);
             router.reload();
         }
     });
@@ -38,7 +36,6 @@ function Categories() {
     // delete category from server
     const { mutate: mutateDelete, error: errorDelete } = trpc.useMutation(["user.delete-category"], {
         onSuccess: (data) => {
-            console.log("success", data);
             router.reload();
         }
     });
@@ -56,16 +53,16 @@ function Categories() {
     }
 
     return (
-        <div className="flex flex-col bg-gray-100 h-screen">
+        <div className="flex flex-col ">
             <div>
                 <Navbar />
             </div>
-            <div className="flex">
-                <div className="flex w-[18%]">
+            <div className="flex mobile:flex mobile:flex-col">
+                <div className="flex w-[18%] mobile:w-full">
                     <Sidebar active={pathname} />
                 </div>
                 <div className="flex flex-col flex-1">
-                    <div className='flex flex-col gap-4 p-4 h-[95vh]'>
+                    <div className='flex flex-col gap-4 p-4 h-[95vh] mobile:h-full'>
                         <h1 className='text-xl text-gray-600'>Categories</h1>
                         <span>Here are all categories we have</span>
                         <div className='flex flex-col'>
@@ -91,7 +88,7 @@ function Categories() {
                     </div>
                 </div>
 
-                <div className="w-[25%]">
+                <div className="w-[25%] mobile:w-full">
                     <RightSideBar />
                 </div>
 

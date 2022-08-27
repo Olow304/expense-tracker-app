@@ -19,29 +19,29 @@ function TransactionsAction({getAllExpenses} : {getAllExpenses: any}) {
 
     return (
         <div className='flex flex-col gap-2'>
-            <span className='text-gray-600 text-lg' >Categories</span>
-            <div className='flex gap-8'>
-                <div className='flex gap-4 justify-center items-center bg-[#f77898] w-fit px-8 py-2 rounded-lg'>
+            <span className='text-gray-600 text-lg' >Overview</span>
+            <div className='flex gap-8 mobile:flex mobile:flex-col'>
+                <div className='flex gap-4 justify-center items-center bg-[#f77898] w-fit px-8 py-2 rounded-lg mobile:w-full'>
                     <BsFillJournalBookmarkFill size={22} color="white" />
-                    <div className='flex flex-col text-sm'>
+                    <div className='flex flex-col text-sm mobile:flex mobile:flex-row mobile:gap-5'>
                         <span className='text-white'>Total Spend</span>
                         <span className='text-white'>-${getSum('spend')}</span>
                     </div>
                 </div>
 
-                <div className='flex gap-4 justify-center items-center bg-[#51cfce] w-fit px-8 py-2 rounded-lg'>
+                <div className='flex gap-4 justify-center items-center bg-[#51cfce] w-fit px-8 py-2 rounded-lg mobile:w-full'>
                     <BsFillHeartFill size={22} color="white" />
-                    <div className='flex flex-col text-sm'>
+                    <div className='flex flex-col text-sm mobile:flex mobile:flex-row mobile:gap-5'>
                         <span className='text-white'>Total Saving</span>
                         <span className='text-white'>+${getSum('saved')}</span>
                     </div>
                 </div>
 
                 <Link href='/add-expense'>
-                    <div className='flex gap-4 justify-center items-center bg-[#70c0ff] w-fit px-8 py-2 rounded-lg cursor-pointer'>
+                    <div className='flex gap-4 justify-center items-center bg-[#70c0ff] w-fit px-8 py-2 rounded-lg cursor-pointer mobile:w-full'>
                         <BsFillPlusCircleFill size={22} color="white" />
                         <div className='flex flex-col text-sm'>
-                            <span className='text-white'>Add New</span>
+                            <span className='text-white'>Add new Expense</span>
                         </div>
                     </div>
                 </Link>

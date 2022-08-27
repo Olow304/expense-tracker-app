@@ -6,10 +6,7 @@ export const getProfileRouter = createRouter().query("get-profile", {
     input: z.object({
         email: z.string()
     }),
-    async resolve({ ctx, input }) {
-
-        console.log("input_dd", input);
-        
+    async resolve({ ctx, input }) {        
         // find user by userEmail and update profile
         const user = await ctx.prisma.user.findUnique({
             where: {
@@ -28,6 +25,5 @@ export const getProfileRouter = createRouter().query("get-profile", {
                 email: input.email
             }
         });
-
     }
 });

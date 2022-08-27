@@ -12,7 +12,6 @@ const ForgotPassword: NextPage = () => {
 
   const { mutate, error } = trpc.useMutation(["user.forgot-password"], {
     onSuccess: (data) => {
-      console.log("success", data);
       setEmailSendSuccess(true);
     }
   });
@@ -30,7 +29,7 @@ const ForgotPassword: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="flex flex-col justify-center items-center pt-6">
-        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 w-1/2">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 w-1/2 mobile:w-full mobile:px-4 mobile:justify-center">
           {error && <div className="text-red-500">{error.message}</div>}
           <input
             type="text" placeholder="email"
@@ -39,7 +38,7 @@ const ForgotPassword: NextPage = () => {
 
           <button type="submit" className="border-2 border-gray-700 p-2 bg-blue-600 text-white text-md uppercase">Request password reset</button>
         </form>
-        {emailSendSuccess && <div className="text-green-500">Email sent successfuly, please check your inbox or in your spam folder.</div>}
+        {emailSendSuccess && <div className="text-green-500 mobile:px-4">Email sent successfuly, please check your inbox or in your spam folder.</div>}
 
         <Link href="/login">
           <a className="text-blue-500 text-xl">Sign in</a>

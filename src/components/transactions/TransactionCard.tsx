@@ -10,12 +10,7 @@ function TransactionCard({ color, title, category, date, amount, transactionType
     const router = useRouter();
 
     // delete expense from server
-    const { mutate: mutateDelete, error: errorDelete } = trpc.useMutation(["user.delete-expense"], {
-        onSuccess: (data) => {
-            console.log("success", data);
-            //router.reload();
-        }
-    });
+    const { mutate: mutateDelete, error: errorDelete } = trpc.useMutation(["user.delete-expense"], {});
     const removeExpense = () => {
         if (expenseId) {
             mutateDelete({ expenseId });
@@ -33,7 +28,7 @@ function TransactionCard({ color, title, category, date, amount, transactionType
                 <div className='flex flex-col '>
                     <span className='text-sm text-gray-800 flex gap-2'>
                         <span className='text-gray-800'>{title}</span>
-                        <span className='bg-green-200 px-2 py-0 rounded-md text-xs flex items-center text-gray-500' color={color}>{category}</span>
+                        <span className='bg-green-200 px-2 py-0 rounded-md text-xs flex items-center text-gray-500 mobile:hidden' color={color}>{category}</span>
                     </span>
                     <span className='text-sm text-gray-500'>{date}</span>
                 </div>
@@ -41,7 +36,7 @@ function TransactionCard({ color, title, category, date, amount, transactionType
             <div className='ml-auto flex gap-2 items-center'>
                 {transactionType === 'saved' || transactionType === 'save' ? <span className='text-green-500 text-sm'>+${amount}</span> : <span className='text-red-500 text-sm'>-${amount}</span>}
                 <button onClick={removeExpense}>
-                    <FaMinusCircle size={16} color="black" fontWeight={700} />
+                    <FaMinusCircle size={16} color="#86888b" fontWeight={700} />
                 </button>
             </div>
         </div>

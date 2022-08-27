@@ -20,7 +20,6 @@ const Login: NextPage = () => {
     // import react router
     const { mutate, error } = trpc.useMutation(["user.login"], {
         onSuccess: (data) => {
-            console.log("success", data);
             // set token in local storage
             localStorage.setItem("token", data.token);
             localStorage.setItem("expense-username", JSON.stringify(data.username));
@@ -45,8 +44,8 @@ const Login: NextPage = () => {
             </Head>
 
             <div className="flex flex-col justify-center items-center pt-6">
-                <span className="text-2xl pb-4">Sign In now</span>
-                <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 w-1/2">
+                <span className="text-2xl pb-4">Sign In</span>
+                <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 w-1/2 mobile:w-full mobile:px-4">
                     {error && <div className="text-red-500">{error.message}</div>}
                     <input
                         type="text" placeholder="email"

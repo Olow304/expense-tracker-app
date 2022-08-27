@@ -9,7 +9,7 @@ export const addExpenseRouter = createRouter().mutation("add-expense", {
         // find user by userEmail
         const user = await ctx.prisma.user.findUnique({
             where: {
-                email: input.userEmail
+                email: input.userEmail.toLowerCase()
             }
         });
 

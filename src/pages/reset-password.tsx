@@ -14,7 +14,6 @@ const ResetPassword: NextPage = () => {
     const router = useRouter();
     const { mutate, error } = trpc.useMutation(["user.reset-password"], {
         onSuccess: (data) => {
-            console.log("success", data);
             router.push("/login");
         }
     });
@@ -46,7 +45,8 @@ const ResetPassword: NextPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className="flex flex-col justify-center items-center pt-6">
-                <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 w-1/2">
+                <span className="text-2xl pb-4">Change your password</span>
+                <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 w-1/2 mobile:w-full mobile:px-4 mobile:justify-centerr">
                     {mismatch && <div className="text-red-500">Password and Confirm Password do not match</div>}
                     {error && <div className="text-red-500">{error.message}</div>}
                     {notToken && <div className="text-red-500">Invalid token, please pass a valid token.</div>}

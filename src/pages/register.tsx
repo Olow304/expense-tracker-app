@@ -20,7 +20,6 @@ const Register: NextPage = () => {
     const [mismatch, setMismatch] = useState(false);
     const { mutate, error } = trpc.useMutation(["user.register"], {
         onSuccess: (data) => {
-            console.log("success", data);
             router.push("/login");
         }
     });
@@ -44,8 +43,8 @@ const Register: NextPage = () => {
             </Head>
 
             <div className="flex flex-col justify-center items-center pt-6">
-                <span className="text-2xl pb-4">Create User</span>
-                <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 w-1/2">
+                <span className="text-2xl pb-4">Create your account</span>
+                <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 w-1/2 mobile:w-full mobile:px-4">
                     {error && <div className="text-red-500">{error.message}</div>}
                     {mismatch && <div className="text-red-500">Password and Confirm Password do not match</div>}
                     <input

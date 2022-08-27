@@ -30,7 +30,7 @@ function RightSideBar() {
     }
 
     return (
-        <div className='p-4 pr-10'>
+        <div className='p-4 pr-10 mobile:pr-4'>
             <div className='bg-slate-200 h-[250px] rounded-md flex flex-col pt-4 items-center'>
                 <div className=''>
                     <Image
