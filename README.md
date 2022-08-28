@@ -9,6 +9,8 @@
 * ✅ CI setup using GitHub Actions
 * ✅ TailwindCSS
 * ✅ Validates types with Zod library
+* TODO: Image upload
+* TODO: Docker-compose
 
 #### <a href="https://expense-tracker-lo5byti14-olow304.vercel.app/">DEMO</a>
 
