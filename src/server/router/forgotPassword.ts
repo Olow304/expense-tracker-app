@@ -19,7 +19,7 @@ export const forgotpasswordRouter = createRouter().mutation("forgot-password", {
 
     //const url = `http://localhost:3000/reset-password#token=${token}`;
     // prod
-    const url = `https://expense-tracker-lo5byti14-olow304.vercel.app/reset-password#token=${token}`;
+    const url = `https://expense-tracker-app-two.vercel.app/reset-password#token=${token}`;
     // get mailer and send email
     sendEmail(input.email, url);
 
