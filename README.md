@@ -12,7 +12,7 @@
 * TODO: Image upload
 * TODO: Docker-compose
 
-#### <a href="https://expense-tracker-lo5byti14-olow304.vercel.app/">DEMO</a>
+#### <a href="https://expense-tracker-app-two.vercel.app/">DEMO</a>
 
 <img src="screenshots/mobile.png" height="500" width="250"/>
 
